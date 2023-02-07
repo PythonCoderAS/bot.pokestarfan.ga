@@ -1,0 +1,89 @@
+<!--
+title: Command: image_template generate
+description: Generate an image template.
+published: true
+date: 2021-08-23T18:28:38.525Z
+tags: 
+editor: ckeditor
+dateCreated: 2021-08-15T23:23:03.359Z
+-->
+
+<p>Parent: <a href="/commands/image_template">image_template</a></p>
+<p>Generate an image template. If no arguments are given, then an interactive <a href="/glossary/menu">menu</a> is started.</p>
+<p><i>Syntax: </i><code><i>image_template generate [url] [--name=] [--mode {"GUILD"|"1"|"GLOBAL"|"2"}=GLOBAL] [--message=]</i></code></p>
+<h1>Permissions</h1>
+<p>Everyone can run this command.</p>
+<h1>Arguments</h1>
+<h2>url</h2>
+<p>The URL of the image.</p>
+<p><i>Note: In order to upload an image, send the image in a seperate message (as a DM to PokestarBot, for example) and then copy the media link.</i></p>
+<h2>--name=</h2>
+<p>The name to save the image template as. Setting a name will enable saving the image's url as a template.</p>
+<h2>--mode=</h2>
+<p>If saving an image, the mode to save it as. Defaults to Global mode.</p>
+<p>Type: <a href="/glossary/argument#literal-arguments">Literal Argument</a></p>
+<h3>Valid Values</h3>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Mode</th>
+        <th>Values (Case Insensitive)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="/commands/image_template/modes#guild-mode">Guild Mode</a></td>
+        <td>
+          <ul>
+            <li><code>Guild</code></li>
+            <li><code>1</code></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="/commands/image_template/modes#global-mode">Global Mode</a></td>
+        <td>
+          <ul>
+            <li><code>Global</code></li>
+            <li><code>2</code></li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>--message=</h2>
+<p>An optional message that the bot will send with the image.</p>
+<h1>Examples</h1>
+<p>An example usage of the command is <code>%image_template generate https://i.pinimg.com/564x/53/84/49/5384495502d8c84abd7e26accafeb223.jpg --message=When your friend starts sprouting antivax propoganda</code></p>
+<h1>Interactive Menu</h1>
+<p>When used without any arguments, a menu is created. The menu has a few criteria, the most important being that only the person who created a menu can use it.</p>
+<h2>Set URL</h2>
+<p>The URL has to be valid, meaning that it starts with either <code>http://</code> or <code>https://</code> and must have a domain or public IP. To overwrite a saved URL, the button can be used again.</p>
+<h2>Set Message</h2>
+<p>In order to set a message, the template needs to have a valid URL. Once a valid URL is provided via the <a href="#set-url">Set URL</a> button, the Set Message button is unlocked. To overwrite a saved message, the button can be used again.</p>
+<h2>Save Image Template on Send / Do Not Save Image Template on Send</h2>
+<p>By default, the menu will not save the template. This button needs to be clicked in order to allow saving. Once saving is enabled, it can be clicked again to disable saving.</p>
+<h2>Set Image Template Name</h2>
+<p>A name cannot be provided until saving is enabled. To overwrite a saved name, the button can be used again.</p>
+<p><strong>Note: Disabling saving will </strong><i><strong>not</strong></i><strong> clear a name if it has been set.</strong></p>
+<h2>Send</h2>
+<ul>
+  <li>In order to send a template, an image URL is required. The Send button will be locked until a URL is provided.</li>
+  <li>When saving is enabled, a name is required. The Send button will be locked until a name is provided.</li>
+  <li>Once the send button is used, the menu can no longer be used again. The bot also disables all buttons to ensure this is the case.</li>
+</ul>
+<h2>Template Mode Dropdown</h2>
+<ul>
+  <li>The dropdown has no effect until saving is enabled.</li>
+  <li>Only one option is allowed to be chosen.</li>
+</ul>
+<h2>Clear Data</h2>
+<p>The menus have a clear button. This will reset the menu to its default state. The button will be disabled if there is nothing to clear, such as when a menu is newly created or after the button is used.</p>
+<h1>Subcommands</h1>
+<p>The command has no subcommands.</p>
+<h1>Aliases</h1>
+<p>This command has no aliases.</p>
+<h1>Subcommands</h1>
+<p>No slash commands link to the command.</p>

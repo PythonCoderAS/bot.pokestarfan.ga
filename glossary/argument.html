@@ -1,0 +1,503 @@
+<!--
+title: Glossary: Argument
+description: 
+published: true
+date: 2021-08-19T00:30:54.822Z
+tags: 
+editor: ckeditor
+dateCreated: 2021-08-10T21:39:40.731Z
+-->
+
+<p>An argument is a value that can be given to a command. A command will accept zero or more arguments. Arguments are usually separated by spaces, although if you want to pass a value with a string to an argument, you can <strong>enclose the string in quotation marks</strong> (more about that later).</p>
+<p>Arguments can be optional or required. Furthermore, arguments can also be repeatable and/or flags.</p>
+<p>A limitation of the library running PokestarBot is that no argument can contain unescaped quote symbols.</p>
+<h1>Required Arguments</h1>
+<p>A required argument is an argument that must be present for the command to run. If the argument is not present then the bot will send an error message stating which argument is missing.</p>
+<h1>Optional Arguments</h1>
+<p>An optional argument is an argument that does not need to specify. Specifying an optional argument usually leads to an alternate result from the command.</p>
+<h1>Repeatable Arguments</h1>
+<p>A repeatable argument is an argument that can accept multiple values. For example, a command that might allow a user to run actions on several <a href="/glossary/member">members</a> will allow you to specify multiple <a href="/glossary/mention">mentions</a>, separated by spaces. When an argument is repeatable, it usually is looking for a certain value and will stop processing new values once a value that does not match the argument type is found.</p>
+<h1>Flag Arguments</h1>
+<p>A flag argument is an argument that has a prefix and a suffix denoting where the argument starts and the data stats. PokestarBot's flags look very similar to UNIX command-line arguments except that there is no need to quote strings with spaces. An example flag argument might be <code>--name=A Name</code>, and this would pass the value <code>A Name</code> onto the <code>name</code> argument. Flag arguments appear at the end of a syntax chain, so there is no ambiguity between a normal argument and a flag argument.</p>
+<h1>Quote Escaping Arguments</h1>
+<p>By default, arguments are separated by spaces. Therefore, special care is needed when entering words with spaces into an argument. Luckily, a mechanism called <strong>quote escaping</strong> makes it possible to provide arguments with spaces. Simply, it means that an argument with spaces has to be surrounded by quotes. An example would be <code>%command “A Value”</code>. Normally, the words <code>A</code> and <code>Value</code> would get interpreted as two different arguments, but in this case, they are provided as one argument to the bot, including the spaces.&nbsp;</p>
+<p>However, not all arguments support quote escaping. Due to the way they work, flag arguments will never be quote escapable. Furthermore, some arguments will not be quote escapable because they automatically ignore spaces, making quoting redundant. However, all non-flag commands that aren't the last command in a syntax chain will always be quote escapable. When quotes are used inside of arguments that do not support quotes, the quotes will be copied as-is to the bot.</p>
+<h2>Limitations of Quotes</h2>
+<p>Due to the way that quote escaping works, <strong>unescaped quote symbols</strong> cannot be used inside of arguments supporting quote escaping. Instead, they must be <strong>escaped</strong> with a backslash (<code>\)</code>. An example of quote symbol escaping would be <code>%another_command A_\"value_with_quotes\"</code>.</p>
+<h1>Argument Types</h1>
+<p>Some arguments accept custom values while other arguments expect members, channels, and so on. There are multiple ways to specify these data types, but they are the same for all arguments that accept the given type. This means that any of the member formats are accepted for any argument taking a Member.</p>
+<h2>Literal Arguments</h2>
+<p>A literal argument is an argument when there is a predefined list of exact values to submit. If a value that is not on the list is submitted, an error will be raised. &nbsp;Literal arguments will contain a list of the valid values. Literal values are usually case-sensitive, but case-insensitive literals will be noted.</p>
+<h2>Boolean Arguments</h2>
+<p>Boolean values are a subset of literal arguments that will always accept the same set of values. A boolean has two lists of accepted values: one list meaning “True” and one list meaning “False”. Boolean values are not case sensitive, unlike most literal values.</p>
+<h3>Valid Boolean Values</h3>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:center;">True Values</th>
+        <th style="text-align:center;">False Values</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <ul>
+            <li><code>yes</code></li>
+            <li><code>true</code></li>
+            <li><code>on</code></li>
+            <li><code>enable</code></li>
+            <li><code>y</code></li>
+            <li><code>t</code></li>
+            <li><code>1</code></li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li><code>no</code></li>
+            <li><code>false</code></li>
+            <li><code>off</code></li>
+            <li><code>disable</code></li>
+            <li><code>n</code></li>
+            <li><code>f</code></li>
+            <li><code>0</code></li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>User Arguments</h2>
+<p>When a user is required, this means that the user does not have to be in the same guild as the channel in which the command is being run. The following values are accepted for user arguments:</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><code>id</code></td>
+        <td>The numeric user id.</td>
+        <td><code>480521405427875842</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code>@user</code></td>
+        <td>A mention</td>
+        <td><code>@PokestarBot#9763</code></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code>Username#Discriminator</code></td>
+        <td>The username and the user's discriminator, separated by an <code>#</code></td>
+        <td><code>PokestarBot#9763</code></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><code>Username</code></td>
+        <td>The username. <strong>Note: Multiple people can share the same username including people in guilds the bot is in but you are not, please do not use this!</strong></td>
+        <td><code>PokestarBot</code></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>Member Arguments</h2>
+<p>A member argument is very similar to a user argument. However, when a member is required, this means that the target user has to be in the same guild as the channel in which the command is being run. Furthermore, this also means that the username search is also scoped to the guild, and is, therefore, safe to use if only one user with the same name exists in the guild. Finally, nickname search is supported as well, although it has the same pitfalls as the username search.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><code>id</code></td>
+        <td>The numeric user id.</td>
+        <td><code>480521405427875842</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code>@user</code></td>
+        <td>A mention</td>
+        <td><code>@PokestarBot#9763</code></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code>Username#Discriminator</code></td>
+        <td>The username and the user's discriminator, separated by an <code>#</code></td>
+        <td><code>PokestarBot#9763</code></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><code>Username</code></td>
+        <td>The username. <strong>Note: Multiple people can share the same username, please do not use this unless you are 100% sure only one person has this username!</strong></td>
+        <td><code>PokestarBot</code></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><code>Nickname</code></td>
+        <td>The nickname. <strong>Note: Multiple people can share the same nickname, please do not use this unless you are 100% sure only one person has this nickname!</strong></td>
+        <td><code>MyNick</code></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>Message Arguments</h2>
+<p>A message argument requires a specific message. This message must not be deleted.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><code>&lt;channel_id&gt;-&lt;message_id&gt;</code></td>
+        <td>The channel-message ID combo (retrieved by shift-clicking on <code>Copy ID</code> when copying a message's ID).</td>
+        <td><code>480523985151459329-874505189514678282</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code>id</code></td>
+        <td>The numeric message id.</td>
+        <td><code>874505226219057173</code></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code>jump_url</code></td>
+        <td>The URL that links to this message (obtained via <code>Copy Message Link</code>)</td>
+        <td><a href="https://discord.com/channels/@me/480523985151459329/874501820414849064"><code>https://discord.com/channels/@me/480523985151459329/874501820414849064</code></a></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>Channel Arguments</h2>
+<p>A channel argument targets a channel in a guild. It does not work inside of a DM.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><code>id</code></td>
+        <td>The numeric channel id.</td>
+        <td><code>480523985151459329</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code>#channel</code></td>
+        <td>A channel mention. Usually used only with text channels, since you would have to manually construct a mention for any other type of channel.</td>
+        <td><code>#general</code></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code>channel</code></td>
+        <td>The channel's name. <strong>Note: Multiple channels can share the same name, please do not use this unless you are 100% sure only one channel has this name!</strong></td>
+        <td><code>general</code></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>Role Arguments</h2>
+<p>A role argument targets a role in a guild. It does not work inside of a DM.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><code>id</code></td>
+        <td>The numeric role id.</td>
+        <td><code>480523985151459329</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code>@role</code></td>
+        <td>A role mention.</td>
+        <td><code>@everyone</code></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code>role</code></td>
+        <td>The role's name. <strong>Note: Multiple roles can share the same name, please do not use this unless you are 100% sure only one role has this name!</strong></td>
+        <td><code>everyone</code></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>Guild Arguments</h2>
+<p>A guild argument targets a guild. This is primarily intended for the bot owner.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><code>id</code></td>
+        <td>The numeric guild id.</td>
+        <td><code>480523985151459329</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code>guild</code></td>
+        <td>The guild's name. <strong>Note: Multiple guilds can share the same name, please do not use this!</strong></td>
+        <td><code>PokestarBot Management</code></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>Invite Arguments</h2>
+<p>An invite argument targets an invite link.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center;" rowspan="2">1</td>
+        <td><code>id</code></td>
+        <td>The invite ID, or the part after <code>discord.gg</code>.</td>
+        <td><code>MnHuvuHR</code></td>
+      </tr>
+      <tr>
+        <td><code>url</code></td>
+        <td>The invite URL.</td>
+        <td><code>https://discord.gg/MnHuvuHR</code></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>Color Arguments</h2>
+<p>A color argument targets a specific color.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center;" rowspan="5">1</td>
+        <td><code>0xhex</code></td>
+        <td rowspan="3">The 3 or 6-character hex representation of a color.</td>
+        <td><code>0xffffff</code></td>
+      </tr>
+      <tr>
+        <td><code>#hex</code></td>
+        <td><code>#ffffff</code></td>
+      </tr>
+      <tr>
+        <td><code>0x#hex</code></td>
+        <td><code>0x#ffffff</code></td>
+      </tr>
+      <tr>
+        <td><code>rgb(r, g, b)</code></td>
+        <td>The values of red, green, and blue in the color. Each component must be an integer from 0 to 255.&nbsp;</td>
+        <td><code>rgb(255, 255, 255)</code></td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td>One of the names from the predefined color list, which can be found below.</td>
+        <td><code>blurple</code></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h3>Predefined Color List</h3>
+<p>This table contains the list of predefined colors recognized by the bot.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:center;" colspan="4">Color name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>blue</code></td>
+        <td><code>dark_orange</code></td>
+        <td><code>fuchsia</code></td>
+        <td><code>magenta</code></td>
+      </tr>
+      <tr>
+        <td><code>blurple</code></td>
+        <td><code>dark_purple</code></td>
+        <td><code>gold</code></td>
+        <td><code>og_blurple</code></td>
+      </tr>
+      <tr>
+        <td><code>dark_blue</code></td>
+        <td><code>dark_red</code></td>
+        <td><code>green</code></td>
+        <td><code>orange</code></td>
+      </tr>
+      <tr>
+        <td><code>dark_gold</code></td>
+        <td><code>dark_teal</code></td>
+        <td><code>greyple</code></td>
+        <td><code>purple</code></td>
+      </tr>
+      <tr>
+        <td><code>dark_gray</code></td>
+        <td><code>dark_theme</code></td>
+        <td><code>light_gray</code></td>
+        <td><code>red</code></td>
+      </tr>
+      <tr>
+        <td><code>dark_green</code></td>
+        <td><code>darker_gray</code></td>
+        <td><code>light_grey</code></td>
+        <td><code>teal</code></td>
+      </tr>
+      <tr>
+        <td><code>dark_grey</code></td>
+        <td><code>darker_grey</code></td>
+        <td><code>lighter_gray</code></td>
+        <td><code>yellow</code></td>
+      </tr>
+      <tr>
+        <td><code>dark_magenta</code></td>
+        <td><code>default</code></td>
+        <td><code>lighter_grey</code></td>
+        <td>&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>Emoji Arguments</h2>
+<p>An emoji argument targets a custom emoji only. Note: You most likely will not be able to use emojis from other guilds that the bot does not have access to.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><code>id</code></td>
+        <td>The numeric emoji id.</td>
+        <td><code>480523985151459329</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code>:emoji:</code></td>
+        <td>The emoji's “mention”.</td>
+        <td><code>:lmaodf:</code></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code>emoji</code></td>
+        <td>The emoji's name. <strong>Note: Multiple emojis can share the same name including emojis in guilds the bot is in but you are not, please do not use this!</strong></td>
+        <td><code>lmaodf</code></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>Thread Arguments</h2>
+<p>A thread argument targets a thread. This requires threads to be enabled.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><code>id</code></td>
+        <td>The numeric thread id.</td>
+        <td><code>480523985151459329</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code>#thread</code></td>
+        <td>A thread mention.</td>
+        <td><code>#mythread</code></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code>thread</code></td>
+        <td>The thread's name. <strong>Note: Multiple threads can share the same name, please do not use this unless you are 100% sure only one thread has this name!</strong></td>
+        <td><code>mythread</code></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2>Command Arguments</h2>
+<p>A command argument targets a command.</p>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Format</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><code>name</code></td>
+        <td>The command's name. Aliases can be used</td>
+        <td><code>setup channels</code></td>
+      </tr>
+    </tbody>
+  </table>
+</figure>

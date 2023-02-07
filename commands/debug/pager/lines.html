@@ -1,0 +1,84 @@
+<!--
+title: Command: debug pager lines
+description: Generate a pager with a given amount of lines
+published: true
+date: 2021-08-15T17:49:42.696Z
+tags: commands, debug commands, debug pager commands
+editor: code
+dateCreated: 2021-08-15T17:48:28.435Z
+-->
+
+<p><i>Parent: <a href="/commands/debug">debug</a> <a href="/commands/debug/pager">pager</a></i></p>
+<p>Generate a pager with a given amount of lines.</p>
+<p><i>Syntax: <code>debug pager lines &lt;lines&gt; [--text=False] [--text_template=This is test text #{number}] [--line_template=This is test line #{number}] [--embed_title={number} Test Lines]</code></i></p>
+<h1>Permissions</h1>
+<p>Only the owner can run the commmand.</p>
+<h1>Arguments</h1>
+<h2>lines</h2>
+<p>The amount of lines.</p>
+<h2>--text=</h2>
+<p>Whether or not to include text. Defaults to <code>False</code>.</p>
+<p><b>Type</b>: <a href="/glossary/argument#boolean-values">Boolean Argument</a></p>
+<h2>--text_template=</h2>
+<p>The text that will be generated for each page when <a href="#text">the text argument</a> is enabled. By default, the string <code>This is test text #{number}</code> is used. The string can contain variable placeholders that take the form <code>{&lt;variable&gt;}</code>, where <code>&lt;variable&gt;</code> is the name of the variable.</p>
+<figure class="table">
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>number</code></td>
+<td>The page number. Starts at 1.</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<h2>--line_template=</h2>
+<p>The text that each line should contain. By default, the string <code>This is test line #{number}</code> is used. The string can contain variable placeholders that take the form <code>{&lt;variable&gt;}</code>, where <code>&lt;variable&gt;</code> is the name of the variable.</p>
+<figure class="table">
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>number</code></td>
+<td>The line number. Starts at 1.</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<h2>--embed_title=</h2>
+<p>The title of the embed. By default, the string <code>{number} Test Lines</code> is used. The string can contain variable placeholders that take the form <code>{&lt;variable&gt;}</code>, where <code>&lt;variable&gt;</code> is the name of the variable.</p>
+<figure class="table">
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>number</code></td>
+<td>The number of lines.</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<h1>Examples</h1>
+<p>An example usage of the command is <code>%debug pager 5 --text=1 --text_template=Test Text #{number} --line_template=Test Line #{number} --embed_title={number} Lines</code>.</p>
+<h1>Subcommands</h1>
+<p>The command has no subcommands.</p>
+<h1>Aliases</h1>
+<p><i>Note: This command has <a href="/glossary/alias#automatic-aliases">additional automatically-created aliases.</a></i></p> <ul><li><code>lines</code></li><li><code>test_line</code></li><li><code>test_lines</code></li></ul>
+<p>This command has no aliases.</p>
+<h1>Slash Commands</h1>
+<p>No slash commands link to the command.</p>

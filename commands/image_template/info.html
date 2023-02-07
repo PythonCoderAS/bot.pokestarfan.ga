@@ -1,0 +1,88 @@
+<!--
+title: Command: image_template info
+description: Get information on an image template
+published: true
+date: 2021-08-22T18:21:41.266Z
+tags: commands, image_template commands, image_template
+editor: ckeditor
+dateCreated: 2021-08-15T23:25:47.125Z
+-->
+
+<p><i>Parent: </i><a href="/commands/image_template"><i>image_template</i></a></p>
+<p>Get information on an image template. If no arguments are given, then an interactive <a href="/glossary/menu">menu</a> is started.</p>
+<p><i>Syntax: </i><code><i>image_template info [name] [--mode {"EITHER"|"0"|"GUILD"|"1"|"GLOBAL"|"2"}=EITHER]</i></code></p>
+<h1>Permissions</h1>
+<p>Everyone can run this command.</p>
+<h1>Arguments</h1>
+<h2>name</h2>
+<p>The name of the image template to get info on.</p>
+<h2>--mode=</h2>
+<p>The mode of the image template to get info on.</p>
+<p>Type: <a href="/glossary/argument#literal-arguments">Literal Argument</a></p>
+<h3>Valid Values</h3>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Mode</th>
+        <th>Values (Case Insensitive)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="/commands/image_template/modes#priority">Either</a></td>
+        <td>
+          <ul>
+            <li><code>Either</code></li>
+            <li><code>0</code></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="/commands/image_template/modes#guild-mode">Guild Mode</a></td>
+        <td>
+          <ul>
+            <li><code>Guild</code></li>
+            <li><code>1</code></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="/commands/image_template/modes#global-mode">Global Mode</a></td>
+        <td>
+          <ul>
+            <li><code>Global</code></li>
+            <li><code>2</code></li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h1>Examples</h1>
+<p>An example usage of the command is <code>%image_template info my_template</code></p>
+<h1>Interactive Menu</h1>
+<p>When used without any arguments, a menu is created. The menu has a few criteria, the most important being that only the person who created a menu can use it.</p>
+<h2>Set Image Template Name</h2>
+<p>To overwrite a saved name, the button can be used again.</p>
+<h2>Get Info</h2>
+<ul>
+  <li>In order to get info on a template, a name is required. The Get Info button will be locked until a name is provided.</li>
+  <li>Once the info button is used, the menu can no longer be used again. The bot also disables all buttons to ensure this is the case.</li>
+</ul>
+<h2>Clear Data</h2>
+<p>The menus have a clear button. This will reset the menu to its default state. The button will be disabled if there is nothing to clear, such as when a menu is newly created or after the button is used.</p>
+<h2>Template Mode Dropdown</h2>
+<p>Only one option is allowed to be chosen by the dropdown. The “Either” option will get info on a guild template if one exists, or a global template if one does not.</p>
+<h1>Subcommands</h1>
+<p>The command has no subcommands.</p>
+<h1>Aliases</h1>
+<p><i>Note: This command has </i><a href="/glossary/alias#automatic-aliases"><i>additional automatically-created aliases.</i></a></p>
+<ul>
+  <li><code>show</code></li>
+  <li><code>show_link</code></li>
+  <li><code>show_template</code></li>
+  <li><code>template_info</code></li>
+</ul>
+<h1>Subcommands</h1>
+<p>No slash commands link to the command.</p>

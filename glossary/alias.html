@@ -1,0 +1,23 @@
+<!--
+title: Glossary: Alias
+description: 
+published: true
+date: 2021-08-12T19:56:23.033Z
+tags: glossary
+editor: ckeditor
+dateCreated: 2021-08-12T19:56:23.033Z
+-->
+
+<p>An alias is another name for a command or subcommand. Aliases will not show up on any lists or command helps, but work as drop-in replacements wherever needed. It is possible to nest aliases, or provide an alias of a parent command and then provide a different alias for a subcommand.</p>
+<h1>Automatic Aliases</h1>
+<p>To make it easier to enter commands from a mobile device, PokestarBot automatically creates aliases. All command names and aliases with an underscore will have additional aliases including an alias of the command where the underscore is replaced with a hyphen, and an alias of the command where the underscore is omitted completely.</p>
+<ul>
+  <li>Scenario 1: A command has an alias of <code>an_alias</code>. The command would also have the aliases <code>an-alias</code> and <code>analias</code>.</li>
+  <li>Scenario 2: A command has the name of <code>example_command</code> (not an alias but the actual name). The command would have the aliases <code>example-command</code> and <code>examplecommand</code>.</li>
+  <li>Scenario 3: A command has the name of <code>example_command</code> as well as aliases <code>an_alias</code> and <code>another_alias</code>. This command would have 6 aliases:<ul>
+      <li><code>example-command</code> and <code>examplecommand</code></li>
+      <li><code>an-alias</code> and <code>analias</code></li>
+      <li><code>another-alias</code> and <code>anotheralias</code></li>
+    </ul>
+  </li>
+</ul>

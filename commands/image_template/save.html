@@ -1,0 +1,77 @@
+<!--
+title: Command: image_template save
+description: Save an image template
+published: true
+date: 2021-08-23T16:45:17.983Z
+tags: commands, image_template commands, image_template
+editor: ckeditor
+dateCreated: 2021-08-15T23:41:41.836Z
+-->
+
+<p><i>Parent: </i><a href="/commands/image_template"><i>image_template</i></a></p>
+<p>Save an image template. If no arguments are given, then an interactive <a href="/glossary/menu">menu</a> is started.</p>
+<p><i>Syntax: </i><code><i>image_template save [url] [name] [--mode {"GUILD"|"1"|"GLOBAL"|"2"}=GLOBAL]</i></code></p>
+<h1>Permissions</h1>
+<p>Everyone can run this command.</p>
+<h1>Arguments</h1>
+<h2>url</h2>
+<p>The URL of the template.</p>
+<h2>name</h2>
+<p>The name of the template.</p>
+<h2>--mode=</h2>
+<p>The mode to save it as. Defaults to Global mode.</p>
+<p>Type: <a href="/glossary/argument#literal-arguments">Literal Argument</a></p>
+<h3>Valid Values</h3>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Mode</th>
+        <th>Values (Case Insensitive)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="/commands/image_template/modes#guild-mode">Guild Mode</a></td>
+        <td>
+          <ul>
+            <li><code>Guild</code></li>
+            <li><code>1</code></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="/commands/image_template/modes#global-mode">Global Mode</a></td>
+        <td>
+          <ul>
+            <li><code>Global</code></li>
+            <li><code>2</code></li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h1>Examples</h1>
+<p>An example usage of the command is <code>%image_template save https://i.pinimg.com/564x/53/84/49/5384495502d8c84abd7e26accafeb223.jpg my_template</code></p>
+<h1>Interactive Menu</h1>
+<p>When used without any arguments, a menu is created. The menu has a few criteria, the most important being that only the person who created a menu can use it.</p>
+<h2>Set URL</h2>
+<p>The URL has to be valid, meaning that it starts with either <code>http://</code> or <code>https://</code> and must have a domain or public IP. To overwrite a saved URL, the button can be used again.</p>
+<h2>Set Image Template Name</h2>
+<p>To overwrite a saved name, the button can be used again</p>
+<h2>Save</h2>
+<ul>
+  <li>In order to save a template, an image URL and a name is required. The Save button will be locked until a URL and name are provided.</li>
+  <li>Once the save button is used, the menu can no longer be used again. The bot also disables all buttons to ensure this is the case.</li>
+</ul>
+<h2>Template Mode Dropdown</h2>
+<p>Only one option is allowed to be chosen.</p>
+<h2>Clear Data</h2>
+<p>The menus have a clear button. This will reset the menu to its default state. The button will be disabled if there is nothing to clear, such as when a menu is newly created or after the button is used.</p>
+<h1>Subcommands</h1>
+<p>The command has no subcommands.</p>
+<h1>Aliases</h1>
+<p>This command has no aliases.</p>
+<h1>Subcommands</h1>
+<p>No slash commands link to the command.</p>

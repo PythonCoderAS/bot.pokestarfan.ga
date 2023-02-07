@@ -1,0 +1,36 @@
+<!--
+title: Command: debug exec
+description: Execute code.
+published: true
+date: 2021-08-20T01:19:12.901Z
+tags: commands, debug commands
+editor: ckeditor
+dateCreated: 2021-08-15T14:31:42.741Z
+-->
+
+<p><i>Parent: </i><a href="/commands/debug"><i>debug</i></a></p>
+<p>Executes code in a function. This allows for more complex multi-line code blocks to be run.</p>
+<p><i>Syntax: </i><code><i>debug exec &lt;block&gt;</i></code></p>
+<h1>Permissions</h1>
+<p>Only the owner can run the command.</p>
+<h1>Arguments</h1>
+<h2>block</h2>
+<p>The code block to process.</p>
+<h1>Examples</h1>
+<p>An example usage of the command is</p>
+<pre><code class="language-python">%debug eval ```python
+guilds = self.bot.guilds
+for guild in guilds:
+    print(guild.name, len(guild.members))
+return [guild.channels for guild in guilds]```</code></pre>
+<h1>Subcommands</h1>
+<p>The command has no subcommands.</p>
+<h1>Aliases</h1>
+<p><i>Note: This command has </i><a href="/glossary/alias#automatic-aliases"><i>additional automatically-created aliases.</i></a></p>
+<ul>
+  <li><code>exec_code</code></li>
+  <li><code>execute</code></li>
+  <li><code>execute_code</code></li>
+</ul>
+<h1>Slash Commands</h1>
+<p>No slash commands link to the command.</p>

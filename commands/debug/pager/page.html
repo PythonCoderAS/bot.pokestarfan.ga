@@ -1,0 +1,68 @@
+<!--
+title: Command: debug pager page
+description: Generates a pager with a given number of pages
+published: true
+date: 2021-08-20T01:19:13.601Z
+tags: commands, debug commands, debug pager commands
+editor: ckeditor
+dateCreated: 2021-08-15T18:28:57.132Z
+-->
+
+<p><i>Parent: <a href="/commands/debug">debug</a> <a href="/commands/debug/pager">pager</a></i></p>
+<p>Generate a <a href="/glossary/pager">pager</a> with a given amount of pages.</p>
+<p><i>Syntax: <code>debug pager page &lt;pages&gt; [--text=True] [--embed=False] [--text_template=This is test line #{number}] [--embed_description_template=This is test embed #{number}]</code></i></p>
+<h1>Permissions</h1>
+<p>Only the owner can run the command.</p>
+<h1>Arguments</h1>
+<h2>pages</h2>
+<p>The number of pages to generate.</p>
+<h2>--text=</h2>
+<p>Whether or not to include text. Defaults to <code>False</code>.</p>
+<p><b>Type</b>: <a href="/glossary/argument#boolean-values">Boolean Argument</a></p>
+<h2>--embed=</h2>
+<p>Whether or not to include an embed. Defaults to <code>False</code>.</p>
+<p><b>Type</b>: <a href="/glossary/argument#boolean-values">Boolean Argument</a></p>
+<h2>--text_template=</h2>
+<p>The text that will be generated for each page when <a href="#text">the text argument</a> is enabled. By default, the string <code>This is test text #{number}</code> is used. The string can contain variable placeholders that take the form <code>{&lt;variable&gt;}</code>, where <code>&lt;variable&gt;</code> is the name of the variable.</p>
+<figure class="table">
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>number</code></td>
+<td>The page number. Starts at 1.</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<h2>--embed_description_template=</h2>
+<p>The embed description that will be generated for each page when <a href="#embed">the embed argument</a> is enabled. By default, the string <code>This is test embed #{number}</code> is used. The string can contain variable placeholders that take the form <code>{&lt;variable&gt;}</code>, where <code>&lt;variable&gt;</code> is the name of the variable.</p>
+<figure class="table">
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>number</code></td>
+<td>The page number. Starts at 1.</td>
+</tr>
+</tbody>
+</table>
+</figure>
+<h1>Examples</h1>
+<p>An example usage of the command is <code>%debug pager page --text=1 --embed=0</code>.</p>
+<h1>Subcommands</h1>
+<p>The command has no subcommands.</p>
+<h1>Aliases</h1>
+<p><i>Note: This command has <a href="/glossary/alias#automatic-aliases">additional automatically-created aliases.</a></i></p> <ul><li><code>pages</code></li><li><code>test_page</code></li></ul>
+<h1>Slash Commands</h1>
+<p>No slash commands link to the command.</p>

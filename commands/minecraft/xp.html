@@ -1,0 +1,296 @@
+<!--
+title: Command: minecraft xp
+description: Root experience command
+published: true
+date: 2021-08-20T00:33:25.545Z
+tags: commands, minecraft commands, minecraft xp commands
+editor: ckeditor
+dateCreated: 2021-08-19T18:18:39.402Z
+-->
+
+<p><i>Parent: </i><a href="/commands/minecraft"><i>minecraft</i></a></p>
+<p>Root command for dealing with experience. When called directly, shows a list of subcommands.</p>
+<p><i>Syntax: </i><code><i>minecraft xp</i></code></p>
+<h1>Experience Levels</h1>
+<p>The bot stores raw experience, but all commands that use experience use a certain amount of experience levels. The formula for experience levels follows the one used in Minecraft. The experience formula can be found <a href="https://minecraft.fandom.com/wiki/Experience#Experience_Formula">here</a>. A table with experience data up to level 50 has been provided. A chart with experience data up to level 1000 can be located <a href="/commands/minecraft/xp/levels">here</a>, and values for any level above that can be found with the <a href="/commands/minecraft/xp/calculate">mc xp calculate</a> command.</p>
+<h2>Experience Data</h2>
+<figure class="table">
+  <table>
+    <thead>
+      <tr>
+        <th><strong>Level</strong></th>
+        <th><strong>Experience Needed to Get Level From Previous Level</strong></th>
+        <th><strong>Total Experience Needed to be Level</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>7</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>9</td>
+        <td>16</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>11</td>
+        <td>27</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>13</td>
+        <td>40</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>15</td>
+        <td>55</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>17</td>
+        <td>72</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>19</td>
+        <td>91</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>21</td>
+        <td>112</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>23</td>
+        <td>135</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>25</td>
+        <td>160</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>27</td>
+        <td>187</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>29</td>
+        <td>216</td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>31</td>
+        <td>247</td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>33</td>
+        <td>280</td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>35</td>
+        <td>315</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>37</td>
+        <td>352</td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>42</td>
+        <td>394</td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>47</td>
+        <td>441</td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>52</td>
+        <td>493</td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>57</td>
+        <td>550</td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td>62</td>
+        <td>612</td>
+      </tr>
+      <tr>
+        <td>22</td>
+        <td>67</td>
+        <td>679</td>
+      </tr>
+      <tr>
+        <td>23</td>
+        <td>72</td>
+        <td>751</td>
+      </tr>
+      <tr>
+        <td>24</td>
+        <td>77</td>
+        <td>828</td>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td>82</td>
+        <td>910</td>
+      </tr>
+      <tr>
+        <td>26</td>
+        <td>87</td>
+        <td>997</td>
+      </tr>
+      <tr>
+        <td>27</td>
+        <td>92</td>
+        <td>1089</td>
+      </tr>
+      <tr>
+        <td>28</td>
+        <td>97</td>
+        <td>1186</td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td>102</td>
+        <td>1288</td>
+      </tr>
+      <tr>
+        <td>30</td>
+        <td>107</td>
+        <td>1395</td>
+      </tr>
+      <tr>
+        <td>31</td>
+        <td>112</td>
+        <td>1507</td>
+      </tr>
+      <tr>
+        <td>32</td>
+        <td>121</td>
+        <td>1628</td>
+      </tr>
+      <tr>
+        <td>33</td>
+        <td>130</td>
+        <td>1758</td>
+      </tr>
+      <tr>
+        <td>34</td>
+        <td>139</td>
+        <td>1897</td>
+      </tr>
+      <tr>
+        <td>35</td>
+        <td>148</td>
+        <td>2045</td>
+      </tr>
+      <tr>
+        <td>36</td>
+        <td>157</td>
+        <td>2202</td>
+      </tr>
+      <tr>
+        <td>37</td>
+        <td>166</td>
+        <td>2368</td>
+      </tr>
+      <tr>
+        <td>38</td>
+        <td>175</td>
+        <td>2543</td>
+      </tr>
+      <tr>
+        <td>39</td>
+        <td>184</td>
+        <td>2727</td>
+      </tr>
+      <tr>
+        <td>40</td>
+        <td>193</td>
+        <td>2920</td>
+      </tr>
+      <tr>
+        <td>41</td>
+        <td>202</td>
+        <td>3122</td>
+      </tr>
+      <tr>
+        <td>42</td>
+        <td>211</td>
+        <td>3333</td>
+      </tr>
+      <tr>
+        <td>43</td>
+        <td>220</td>
+        <td>3553</td>
+      </tr>
+      <tr>
+        <td>44</td>
+        <td>229</td>
+        <td>3782</td>
+      </tr>
+      <tr>
+        <td>45</td>
+        <td>238</td>
+        <td>4020</td>
+      </tr>
+      <tr>
+        <td>46</td>
+        <td>247</td>
+        <td>4267</td>
+      </tr>
+      <tr>
+        <td>47</td>
+        <td>256</td>
+        <td>4523</td>
+      </tr>
+      <tr>
+        <td>48</td>
+        <td>265</td>
+        <td>4788</td>
+      </tr>
+      <tr>
+        <td>49</td>
+        <td>274</td>
+        <td>5062</td>
+      </tr>
+      <tr>
+        <td>50</td>
+        <td>283</td>
+        <td>5345</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h1>Permissions</h1>
+<p>Everyone can run this command.</p>
+<h1>Arguments</h1>
+<p>The command has no arguments.</p>
+<h1>Examples</h1>
+<p>An example usage of the command is <code>%minecraft xp</code></p>
+<h1>Subcommands</h1>
+<ul>
+  <li><a href="/commands/minecraft/xp/add">add</a></li>
+  <li><a href="/commands/minecraft/xp/calculate">calculate</a></li>
+  <li><a href="/commands/minecraft/xp/get">get</a></li>
+  <li><a href="/commands/minecraft/xp/set">set</a></li>
+</ul>
+<h1>Aliases</h1>
+<p>This command has no aliases.</p>
+<h1>Slash Commands</h1>
+<p>No slash commands link to the command.</p>
